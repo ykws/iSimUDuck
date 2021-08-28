@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     
     // MARK: - Property
 
-    let ducks = [MallardDuck(), RedheadDuck()]
+    let ducks = [MallardDuck(), RedheadDuck(), RubberDuck()]
     var selectedDuck: Duck?
 
     // MARK: - Life cycle

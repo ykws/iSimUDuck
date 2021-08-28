@@ -47,3 +47,19 @@ class RedheadDuck: Duck, DuckDisplayable {
         return "RedheadDuck"
     }
 }
+
+// MARK: - RubberDuck
+
+class RubberDuck: Duck, DuckDisplayable {
+    func display() -> String {
+        return "RubberDuck"
+    }
+    
+    override func quack() -> String {
+        return "squeak"
+    }
+    
+    override func fly() -> String {
+        return ""
+    }
+}
