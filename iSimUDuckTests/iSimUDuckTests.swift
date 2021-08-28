@@ -28,6 +28,11 @@ class iSimUDuckTests: XCTestCase {
         XCTAssertEqual(mallardDuck.swim(), "swim")
     }
 
+    func test_MallardDuck_fly() throws {
+        let mallardDuck = MallardDuck()
+        XCTAssertEqual(mallardDuck.fly(), "fly")
+    }
+
     func test_RedheadDuck_quack() throws {
         let redheadDuck = RedheadDuck()
         XCTAssertEqual(redheadDuck.quack(), "quack")
@@ -38,4 +43,8 @@ class iSimUDuckTests: XCTestCase {
         XCTAssertEqual(redheadDuck.swim(), "swim")
     }
 
+    func test_RedheadDuck_fly() throws {
+        let redheadDuck = RedheadDuck()
+        XCTAssertEqual(redheadDuck.fly(), "fly")
+    }
 }

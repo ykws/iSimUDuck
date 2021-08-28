@@ -26,6 +26,10 @@ class Duck {
     func swim() -> String {
         return "swim"
     }
+
+    func fly() -> String {
+        return "fly"
+    }
 }
 
 // MARK: - MallardDuck

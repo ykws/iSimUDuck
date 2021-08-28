@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Enumerations
 
-enum TableSection: Int {
+enum TableSection: Int, CaseIterable {
     case duck
     case behavior
 
@@ -21,14 +21,16 @@ enum TableSection: Int {
     }
 }
 
-enum DuckBehavior: Int {
+enum DuckBehavior: Int, CaseIterable {
     case quack
     case swim
+    case fly
 
     func title() -> String {
         switch self {
         case .quack: return "Quack"
         case .swim: return "Swim"
+        case .fly: return "Fly"
         }
     }
 }
@@ -61,7 +63,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return TableSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -77,7 +79,7 @@ extension ViewController: UITableViewDataSource {
         case .duck:
             return ducks.count
         case .behavior:
-            return 2
+            return DuckBehavior.allCases.count
         case .none:
             return 0
         }
@@ -124,6 +126,8 @@ extension ViewController: UITableViewDelegate {
                 showAlert(message: duck.quack())
             case .swim:
                 showAlert(message: duck.swim())
+            case .fly:
+                showAlert(message: duck.fly())
             case .none:
                 break
             }
