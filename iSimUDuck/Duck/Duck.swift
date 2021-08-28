@@ -16,25 +16,79 @@ protocol DuckDisplayable: AnyObject {
     func display() -> String
 }
 
+// MARK: - FlyBehavior
+
+protocol FlyBehavior: AnyObject {
+    func fly() -> String
+}
+
+class FlyWithWings: FlyBehavior {
+    func fly() -> String {
+        return "fly"
+    }
+}
+
+class FlyNoWay: FlyBehavior {
+    func fly() -> String {
+        return ""
+    }
+}
+
+// MARK: - QuackBehavior
+
+protocol QuackBehavior: AnyObject {
+    func quack() -> String
+}
+
+class Quack: QuackBehavior {
+    func quack() -> String {
+        return "quack"
+    }
+}
+
+class Squack: QuackBehavior {
+    func quack() -> String {
+        return "squack"
+    }
+}
+
+class MuteQuack: QuackBehavior {
+    func quack() -> String {
+        return ""
+    }
+}
+
 // MARK: - Duck
 
 class Duck {
-    func quack() -> String {
-        return "quack"
+    let flyBehavior: FlyBehavior
+    let quackBehavior: QuackBehavior
+
+    init(flyBehavior: FlyBehavior, quackBehavior: QuackBehavior) {
+        self.flyBehavior = flyBehavior
+        self.quackBehavior = quackBehavior
+    }
+
+    func performQuack() -> String {
+        return quackBehavior.quack()
     }
 
     func swim() -> String {
         return "swim"
     }
 
-    func fly() -> String {
-        return "fly"
+    func performFly() -> String {
+        return flyBehavior.fly()
     }
 }
 
 // MARK: - MallardDuck
 
 class MallardDuck: Duck, DuckDisplayable {
+    init() {
+        super.init(flyBehavior: FlyWithWings(), quackBehavior: Quack())
+    }
+
     func display() -> String {
         return "MallardDuck"
     }
@@ -43,6 +97,10 @@ class MallardDuck: Duck, DuckDisplayable {
 // MARK: - RedheadDuck
 
 class RedheadDuck: Duck, DuckDisplayable {
+    init() {
+        super.init(flyBehavior: FlyWithWings(), quackBehavior: Quack())
+    }
+
     func display() -> String {
         return "RedheadDuck"
     }
@@ -51,31 +109,23 @@ class RedheadDuck: Duck, DuckDisplayable {
 // MARK: - RubberDuck
 
 class RubberDuck: Duck, DuckDisplayable {
+    init() {
+        super.init(flyBehavior: FlyNoWay(), quackBehavior: Squack())
+    }
+
     func display() -> String {
         return "RubberDuck"
-    }
-    
-    override func quack() -> String {
-        return "squeak"
-    }
-    
-    override func fly() -> String {
-        return ""
     }
 }
 
 // MARK: - DecoyDuck
 
 class DecoyDuck: Duck, DuckDisplayable {
+    init() {
+        super.init(flyBehavior: FlyNoWay(), quackBehavior: MuteQuack())
+    }
+
     func display() -> String {
         return "DecoyDuck"
-    }
-    
-    override func quack() -> String {
-        return ""
-    }
-    
-    override func fly() -> String {
-        return ""
     }
 }

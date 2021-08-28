@@ -123,11 +123,11 @@ extension ViewController: UITableViewDelegate {
 
             switch DuckBehavior(rawValue: indexPath.row) {
             case .quack:
-                showAlert(message: duck.quack())
+                showAlert(message: duck.performQuack())
             case .swim:
                 showAlert(message: duck.swim())
             case .fly:
-                showAlert(message: duck.fly())
+                showAlert(message: duck.performFly())
             case .none:
                 break
             }
