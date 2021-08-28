@@ -63,3 +63,19 @@ class RubberDuck: Duck, DuckDisplayable {
         return ""
     }
 }
+
+// MARK: - DecoyDuck
+
+class DecoyDuck: Duck, DuckDisplayable {
+    func display() -> String {
+        return "DecoyDuck"
+    }
+    
+    override func quack() -> String {
+        return ""
+    }
+    
+    override func fly() -> String {
+        return ""
+    }
+}

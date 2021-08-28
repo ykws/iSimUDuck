@@ -62,4 +62,19 @@ class iSimUDuckTests: XCTestCase {
         let rubberDuck = RubberDuck()
         XCTAssertEqual(rubberDuck.fly(), "")
     }
+
+    func test_DecoyDuck_quack() throws {
+        let decoyDuck = DecoyDuck()
+        XCTAssertEqual(decoyDuck.quack(), "")
+    }
+
+    func test_DecoyDuck_swim() throws {
+        let decoyDuck = DecoyDuck()
+        XCTAssertEqual(decoyDuck.swim(), "swim")
+    }
+
+    func test_DecoyDuck_fly() throws {
+        let decoyDuck = DecoyDuck()
+        XCTAssertEqual(decoyDuck.fly(), "")
+    }
 }
