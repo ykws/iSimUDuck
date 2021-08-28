@@ -18,16 +18,24 @@ class iSimUDuckTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_MallardDuck_quack() throws {
+        let mallardDuck = MallardDuck()
+        XCTAssertEqual(mallardDuck.quack(), "quack")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_MallardDuck_swim() throws {
+        let mallardDuck = MallardDuck()
+        XCTAssertEqual(mallardDuck.swim(), "swim")
+    }
+
+    func test_RedheadDuck_quack() throws {
+        let redheadDuck = RedheadDuck()
+        XCTAssertEqual(redheadDuck.quack(), "quack")
+    }
+
+    func test_RedheadDuck_swim() throws {
+        let redheadDuck = RedheadDuck()
+        XCTAssertEqual(redheadDuck.swim(), "swim")
     }
 
 }
