@@ -12,11 +12,13 @@ import UIKit
 enum TableSection: Int, CaseIterable {
     case duck
     case behavior
+    case simulate
 
     func title() -> String {
         switch self {
         case .duck: return "Duck"
         case .behavior: return "Behavior"
+        case .simulate: return "Simulate"
         }
     }
 }
@@ -80,6 +82,8 @@ extension ViewController: UITableViewDataSource {
             return ducks.count
         case .behavior:
             return DuckBehavior.allCases.count
+        case .simulate:
+            return 1
         case .none:
             return 0
         }
@@ -101,6 +105,8 @@ extension ViewController: UITableViewDataSource {
             }
 
             cell.textLabel?.text = duckBehavior.title()
+        case .simulate:
+            cell.textLabel?.text = "🚀"
         case .none:
             break
         }
@@ -130,6 +136,10 @@ extension ViewController: UITableViewDelegate {
                 showAlert(message: duck.performFly())
             case .none:
                 break
+            }
+        case .simulate:
+            if selectedDuck != nil {
+                selectedDuck?.flyBehavior = FlyRocketPowered()
             }
         case .none:
             break

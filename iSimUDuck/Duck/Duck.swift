@@ -34,6 +34,12 @@ class FlyNoWay: FlyBehavior {
     }
 }
 
+class FlyRocketPowered: FlyBehavior {
+    func fly() -> String {
+        return "🚀"
+    }
+}
+
 // MARK: - QuackBehavior
 
 protocol QuackBehavior: AnyObject {
@@ -61,8 +67,8 @@ class MuteQuack: QuackBehavior {
 // MARK: - Duck
 
 class Duck {
-    let flyBehavior: FlyBehavior
-    let quackBehavior: QuackBehavior
+    var flyBehavior: FlyBehavior
+    var quackBehavior: QuackBehavior
 
     init(flyBehavior: FlyBehavior, quackBehavior: QuackBehavior) {
         self.flyBehavior = flyBehavior

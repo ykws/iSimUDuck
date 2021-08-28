@@ -33,6 +33,12 @@ class iSimUDuckTests: XCTestCase {
         XCTAssertEqual(mallardDuck.performFly(), "fly")
     }
 
+    func test_MallardDuck_rocket() throws {
+        let mallardDuck = MallardDuck()
+        mallardDuck.flyBehavior = FlyRocketPowered()
+        XCTAssertEqual(mallardDuck.performFly(), "🚀")
+    }
+
     func test_RedheadDuck_quack() throws {
         let redheadDuck = RedheadDuck()
         XCTAssertEqual(redheadDuck.performQuack(), "quack")
@@ -46,6 +52,12 @@ class iSimUDuckTests: XCTestCase {
     func test_RedheadDuck_fly() throws {
         let redheadDuck = RedheadDuck()
         XCTAssertEqual(redheadDuck.performFly(), "fly")
+    }
+
+    func test_RedheadDuck_rocket() throws {
+        let redheadDuck = RedheadDuck()
+        redheadDuck.flyBehavior = FlyRocketPowered()
+        XCTAssertEqual(redheadDuck.performFly(), "🚀")
     }
 
     func test_RubberDuck_quack() throws {
@@ -63,6 +75,12 @@ class iSimUDuckTests: XCTestCase {
         XCTAssertEqual(rubberDuck.performFly(), "")
     }
 
+    func test_RubberDuck_rocket() throws {
+        let rubberDuck = RubberDuck()
+        rubberDuck.flyBehavior = FlyRocketPowered()
+        XCTAssertEqual(rubberDuck.performFly(), "🚀")
+    }
+
     func test_DecoyDuck_quack() throws {
         let decoyDuck = DecoyDuck()
         XCTAssertEqual(decoyDuck.performQuack(), "")
@@ -76,5 +94,11 @@ class iSimUDuckTests: XCTestCase {
     func test_DecoyDuck_fly() throws {
         let decoyDuck = DecoyDuck()
         XCTAssertEqual(decoyDuck.performFly(), "")
+    }
+
+    func test_DecoyDuck_rocket() throws {
+        let decoyDuck = DecoyDuck()
+        decoyDuck.flyBehavior = FlyRocketPowered()
+        XCTAssertEqual(decoyDuck.performFly(), "🚀")
     }
 }
